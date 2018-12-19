@@ -1,6 +1,6 @@
 var html_content,css_content,js_content;
 var count_control=0;
-
+var map={};
 
 window.addEventListener("load", function() {
   	
@@ -50,10 +50,10 @@ function addControl()
 	g.setAttribute("class","inputField");
 	var phone = document.createElement("INPUT");
 	phone.setAttribute("type", "text");
-	phone.setAttribute("value", "Phone Key");
+	phone.setAttribute("value", "Phone");
 	var desktop = document.createElement("INPUT");
 	desktop.setAttribute("type", "text");
-	desktop.setAttribute("value", "Desktop Key");
+	desktop.setAttribute("value", "Desktop");
 	phone.setAttribute("id","phone"+count_control);
 	desktop.setAttribute("id","desktop"+count_control);
 	phone.onclick=function(){
@@ -66,4 +66,24 @@ function addControl()
 	g.appendChild(desktop);
 	var parent=document.getElementById("inputControl");
 	parent.appendChild(g);
+}
+
+function mappy()
+{
+	for(var i=1;i<=count_control;i+=1)
+	{
+		var t="desktop"+i;
+		var temp=document.getElementById(t).value;
+		var d="phone"+i;
+		map[temp]=document.getElementById(d).value
+	}	
+}
+
+function download()
+{
+	let zip = new JSZip();
+	zip.file("prtk.txt", `PMID:29651880\r\nPMID:29303721`);
+	zip.generateAsync({type: "blob"}).then(function(content) {
+  	saveAs(content, "download.zip");
+});
 }

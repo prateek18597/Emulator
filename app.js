@@ -1,6 +1,11 @@
 var html_content,css_content,js_content;
 var count_control=0;
+var map={};
 
+function mapping()
+{
+	console.log("fjhkjkl")
+}
 
 window.addEventListener("load", function() {
   	console.log("Event is working");
@@ -72,3 +77,4 @@ function addControl()
 	var parent=document.getElementById("inputControl");
 	parent.appendChild(g);
 }
+
