@@ -272,3 +272,29 @@ h5 {
 	margin-top: 20px;
 }
 
+
+#topDiv
+{
+  display: flex;
+  flex-direction: row;
+}
+
+#fileInput
+{
+  display:flex;
+  flex-direction:column;
+}
+
+#inputControl
+{
+  display: flex;
+  flex-direction: column;
+}
+
+
+#inputField
+{
+  display:inline-flex;
+  flex-direction: row;
+  float: right;
+}
