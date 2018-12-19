@@ -1,6 +1,66 @@
-var html_content,css_content,js_content;
+var html_content="",css_content="",js_content="";
 var count_control=0;
-var map={};
+var data={};
+var mapp="data = \'";
+var mapping_js=`canvas = document.getElementsByTagName("canvas")[0];
+canvas.width = 220;
+canvas.height = 260;
+
+var mydata = JSON.parse(data);
+console.log(mydata);
+document.addEventListener("keydown", keyNavigationdown, true);
+document.addEventListener("keyup", keyNavigationup, true);
+
+
+
+
+function keyNavigationup(e) {
+    e.stopPropagation();
+    for (var prop in mydata) {
+        if (e.key == mydata[prop]) {
+            var keyboardEvent = document.createEvent("KeyboardEvent");
+            var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? "initKeyboardEvent" : "initKeyEvent";
+            keyboardEvent[initMethod](
+                "keyup", // event type : keydown, keyup, keypress
+                true, // bubbles
+                true, // cancelable
+                window, // viewArg: should be window
+                false, // ctrlKeyArg
+                false, // altKeyArg
+                false, // shiftKeyArg
+                false, // metaKeyArg
+                prop, // keyCodeArg : unsigned long the virtual key code, else 0
+                0 // charCodeArgs : unsigned long the Unicode character associated with the depressed key, else 0
+            );
+            document.dispatchEvent(keyboardEvent);
+
+        }
+    }
+}
+
+function keyNavigationdown(e) {
+    console.log(e);
+    e.stopPropagation();
+    for (var prop in mydata) {
+        if (e.key == mydata[prop]) {
+            var keyboardEvent = document.createEvent("KeyboardEvent");
+            var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? "initKeyboardEvent" : "initKeyEvent";
+            keyboardEvent[initMethod](
+                "keydown", // event type : keydown, keyup, keypress
+                true, // bubbles
+                true, // cancelable
+                window, // viewArg: should be window
+                false, // ctrlKeyArg
+                false, // altKeyArg
+                false, // shiftKeyArg
+                false, // metaKeyArg
+                prop, // keyCodeArg : unsigned long the virtual key code, else 0
+                0 // charCodeArgs : unsigned long the Unicode character associated with the depressed key, else 0
+            );
+            document.dispatchEvent(keyboardEvent);
+        }
+    }
+}`;
 
 window.addEventListener("load", function() {
   	
@@ -15,6 +75,8 @@ window.addEventListener("load", function() {
 	      html_content=fileContent;
 		  console.log(html_content);
     	}
+    	html_content+="<script type=\"text/javascript\" src=\"data.json\"></script>";
+    	html_content+="<script type=\"text/javascript\" src=\"mapping.js\"></script>";
 	}
 	
 	document.getElementById("file-upload-css").onchange = function(event) {
@@ -40,6 +102,7 @@ window.addEventListener("load", function() {
 		  console.log(js_content);
     	}
 	}
+
 });
 
 function addControl()
@@ -75,14 +138,19 @@ function mappy()
 		var t="desktop"+i;
 		var temp=document.getElementById(t).value;
 		var d="phone"+i;
-		map[temp]=document.getElementById(d).value
-	}	
+		data[temp]=document.getElementById(d).value
+	}
+	mapp+=JSON.stringify(data)+"\';";
+	console.log(mapp);	
 }
 
 function download()
 {
 	let zip = new JSZip();
-	zip.file("prtk.txt", `PMID:29651880\r\nPMID:29303721`);
+	zip.file("data.json", mapp);
+	mapp="data = \'";
+	zip.file("index.html", html_content);
+	zip.file("mapping.js", mapping_js);
 	zip.generateAsync({type: "blob"}).then(function(content) {
   	saveAs(content, "download.zip");
 });
