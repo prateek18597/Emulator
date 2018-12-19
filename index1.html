@@ -16,6 +16,50 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script type="text/javascript">
+    	var map={};
+    	var count_control=0;
+
+  //   	function addControl()
+		// {
+		// 	count_control+=1;
+		// 	var g = document.createElement('div');
+		// 	g.setAttribute("id","field"+count_control);
+		// 	g.setAttribute("class","inputField");
+		// 	var d1 = document.createElement('div');
+		// 	var d2 = document.createElement('div');
+		// 	var phone = document.createElement("INPUT");
+		// 	phone.setAttribute("type", "text");
+		// 	phone.setAttribute("value", "Phone Key");
+		// 	var desktop = document.createElement("INPUT");
+		// 	desktop.setAttribute("type", "text");
+		// 	desktop.setAttribute("value", "Desktop Key");
+		// 	phone.setAttribute("id","phone"+count_control);
+		// 	desktop.setAttribute("id","desktop"+count_control);
+		// 	phone.onclick=function(){
+		// 		phone.value="";
+		// 	}
+		// 	desktop.onclick=function(){
+		// 		desktop.value="";
+		// 	}
+		// 	d1.appendChild(phone);
+		// 	d2.appendChild(desktop);
+		// 	g.appendChild(d1);
+		// 	g.appendChild(d2);
+			
+		// 	var parent=document.getElementById("inputControl");
+		// 	parent.appendChild(g);
+		// }
+
+  //   	function mappy()
+		// {
+		// 	for(int i=0;i<count_control;i++)
+		// 	{
+		// 		var temp=document.getElementById("phone"+toString(i)).value;
+		// 		map[temp]=document.getElementById("desktop"+toString(i)).value
+		// 	}	
+		// 	console.log(map);
+		// }
+
 		function download()
 		{
 			console.log("Inside download function");
@@ -26,6 +70,7 @@
 		});
 			console.log("Outside download function");
 	}
+
 	</script>
 	<script src="Prtk/script.js"></script>
   </head>
@@ -185,6 +230,10 @@
 				<div>
 					<button onclick="addControl()" class="addC">Add Control</button>
 				</div>
+				<div>
+					<button type="button" onclick="mappy();" class="addC">Mapping</button>
+				</div>
+
 				<div>
 					<button onclick="download()" class="addC">Download</button>
 				</div>	
