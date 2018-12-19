@@ -48,6 +48,8 @@ function addControl()
 	var g = document.createElement('div');
 	g.setAttribute("id","field"+count_control);
 	g.setAttribute("class","inputField");
+	var d1 = document.createElement('div');
+	var d2 = document.createElement('div');
 	var phone = document.createElement("INPUT");
 	phone.setAttribute("type", "text");
 	phone.setAttribute("value", "Phone Key");
@@ -62,8 +64,11 @@ function addControl()
 	desktop.onclick=function(){
 		desktop.value="";
 	}
-	g.appendChild(phone);
-	g.appendChild(desktop);
+	d1.appendChild(phone);
+	d2.appendChild(desktop);
+	g.appendChild(d1);
+	g.appendChild(d2);
+	
 	var parent=document.getElementById("inputControl");
 	parent.appendChild(g);
 }

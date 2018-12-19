@@ -292,11 +292,12 @@ h5 {
 }
 
 
-#inputField
+.inputField
 {
   display:inline-flex;
   flex-direction: row;
   float: right;
+  flex-wrap: true;
 }
 
 .card-title {
