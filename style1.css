@@ -186,7 +186,7 @@ body{
   width: 100%;
   text-align: center;
   /*padding-top: 50px;*/
-  /*overflow-x: hidden;*/
+  overflow-x: hidden;
 }
 
 a {
@@ -320,6 +320,7 @@ h5 {
   margin: 5px;
   background: skyblue;
   padding: 5px;
+  width: 250px;
 }
 
 
@@ -366,4 +367,63 @@ span:after {
     top: .0875em;
     z-index: -1;
     /*-webkit-mask-image: url(https://f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);*/
+}
+
+.arrow {
+  margin-top: 130px;
+}
+
+#personal-info {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    color: white;
+    margin-bottom: 100px;
+}
+
+.card {
+  border: 2px solid #272885;
+}
+
+.card:hover {
+   transform: scale(1.1);
+   transition: 1s ease-in-out;
+}
+
+.card-body{
+      background: orange;
+      font-family: Montserrat;
+}
+
+.card-title {
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .card-text {
+   font-size: 15px;
+   font-style: italic;
+ }
+
+
+.btn {
+  background: #272885;
+  border-color: white;
+  font-size: 15px;
+}
+.btn:hover {
+  background: white;
+  color: #272885;
+  border-color: #272885;
+}
+
+
+footer .stripes {
+  height: 10px;
+  width: 100%;
+/*  background: url(../img/footer.svg);*/
+  background: url(img/stripes.png);
+  background-image: "img/stripes.png"
 }
