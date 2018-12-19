@@ -1,6 +1,8 @@
 var html_content="",css_content="",js_content="";
 var count_control=0;
 var data={};
+var manifest=`{
+  "name": `;
 var mapp="data = \'";
 var mapping_js=`canvas = document.getElementsByTagName("canvas")[0];
 canvas.width = 220;
@@ -75,8 +77,8 @@ window.addEventListener("load", function() {
 	      html_content=fileContent;
 		  console.log(html_content);
     	}
-    	html_content+="<script type=\"text/javascript\" src=\"data.json\"></script>";
-    	html_content+="<script type=\"text/javascript\" src=\"mapping.js\"></script>";
+    	html_content+=`<script type="text/javascript" src="data.json"></script>`;
+    	html_content+=`<script type="text/javascript" src="mapping.js"></script>`;
 	}
 	
 	document.getElementById("file-upload-css").onchange = function(event) {
@@ -146,12 +148,45 @@ function mappy()
 
 function download()
 {
+	var gameName=document.getElementById("gameName").value;
+	manifest+="\""+gameName;
+	manifest+=`",
+  "description": "you did not put any description",
+  "display":"sample", 
+  "subtitle":"Its a sample app",
+  "version": "1.0.0",
+  "theme":"#63b208",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/src/icons/icon128x128.png"
+  },
+  "type": "privileged",
+  "permissions": {
+    "themeable":{"name": "themeable"},
+    "systemXHR": { "description": "This permission is require to call web api" },
+    "spatialnavigation-app-manage": {}
+
+  },
+  "developer": {
+    "name": "Bob",
+    "url": ""
+  },
+  "fullscreen": true,
+  "default_locale": "en",
+  "locales": {
+  "en-US": {
+      "name": "Sample"
+    }
+  },
+ "cursor": true
+}`;
 	let zip = new JSZip();
 	zip.file("data.json", mapp);
 	mapp="data = \'";
 	zip.file("index.html", html_content);
 	zip.file("mapping.js", mapping_js);
+	zip.file("manifest.webapp", manifest);
 	zip.generateAsync({type: "blob"}).then(function(content) {
-  	saveAs(content, "download.zip");
+  	saveAs(content, gameName+".zip");
 });
 }
