@@ -299,3 +299,23 @@ h5 {
   float: right;
   flex-wrap: true;
 }
+
+.card-title {
+  text-align: center;
+}
+
+.name {
+  height: 50px;
+  border-radius: 5px;
+  width: 300px;
+  background: tomato;
+}
+
+
+.addC {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  background: skyblue;
+  padding: 5px;
+}
