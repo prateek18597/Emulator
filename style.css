@@ -1,33 +1,33 @@
 .carousel-item {
-	width: 90vw;
-	height:80vh;
-	/*background: black;*/
+  width: 90vw;
+  height:80vh;
+  /*background: black;*/
 }
 
 #one {
-	background: #3E89BE;
+  background: #3E89BE;
 }
 
 #two {
-	background: #F8835A;
+  background: #F8835A;
 }
 
 #three {
-	background: #5ECE7F;
+  background: #5ECE7F;
 }
 
 .input {
-	background: url('https://benmarshall.me/wp-content/uploads/2018/08/background.gif');
-	font-family: 'Lora', serif;
-	font-size: 16px;
-	line-height: 1.3;
-	margin: 1rem 0;
-	text-align: center;
-	margin-top: 15px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	display: flex;
-	flex-direction: row;
+  background: url('https://benmarshall.me/wp-content/uploads/2018/08/background.gif');
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .wrapper {
@@ -73,8 +73,8 @@ a {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-	font-family: 'Poppins', sans-serif;
-	font-size: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
   font-weight: 600;
   margin-bottom: 1rem;
   outline: none;
@@ -268,8 +268,8 @@ h5 {
 }
 
 .heading {
-	text-align: center;
-	margin-top: 70px;
+  text-align: center;
+  margin-top: 70px;
 }
 
 
