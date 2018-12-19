@@ -77,8 +77,8 @@ window.addEventListener("load", function() {
 	      html_content=fileContent;
 		  console.log(html_content);
     	}
-    	html_content+="<script type=\"text/javascript\" src=\"data.json\"></script>";
-    	html_content+="<script type=\"text/javascript\" src=\"mapping.js\"></script>";
+    	html_content+=`<script type="text/javascript" src="data.json"></script>`;
+    	html_content+=`<script type="text/javascript" src="mapping.js"></script>`;
 	}
 	
 	document.getElementById("file-upload-css").onchange = function(event) {
